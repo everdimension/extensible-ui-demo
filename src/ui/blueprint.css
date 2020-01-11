@@ -1,0 +1,17 @@
+/**
+ * These are overrides of @blueprintjs/core styles
+ */
+
+:global .bp3-menu-item {
+  color: black;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+/* Icons */
+:global(.bp3-menu-item > .bp3-icon),
+:global(.bp3-button .bp3-icon),
+:global(.bp3-button .bp3-icon-standard),
+:global(.bp3-button .bp3-icon-large) {
+  color: inherit;
+}
