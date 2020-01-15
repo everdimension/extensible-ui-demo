@@ -1,0 +1,13 @@
+@keyframes growing {
+  from {
+    transform: scaleY(1);
+  }
+  to {
+    transform: scaleY(1.5);
+  }
+}
+
+.playing {
+  transform-origin: bottom center;
+  animation: growing var(--animation-duration) linear infinite;
+}

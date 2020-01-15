@@ -15,7 +15,7 @@ export const Settings: React.FunctionComponent<{}> = () => {
   return (
     <>
       <Keybinding
-        combo="ctrl+s"
+        combo={combo.toLowerCase()}
         onKeyDown={() => {
           history.push(pathname);
         }}
@@ -31,7 +31,7 @@ export const Settings: React.FunctionComponent<{}> = () => {
       </Fill>
       <Fill name="navigation">
         <NavigationItem
-          featherIcon="user"
+          featherIcon="settings"
           text="Settings"
           label={enabled ? combo.replace('ctrl+', '^') : undefined}
           href={pathname}
@@ -39,7 +39,7 @@ export const Settings: React.FunctionComponent<{}> = () => {
         ></NavigationItem>
       </Fill>
       <Fill name="main">
-        <Route path={pathname} exact={true}>
+        <Route path={pathname}>
           <SettingsContent />
         </Route>
       </Fill>

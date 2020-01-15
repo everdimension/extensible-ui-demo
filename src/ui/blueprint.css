@@ -2,10 +2,15 @@
  * These are overrides of @blueprintjs/core styles
  */
 
+body {
+  color: black;
+}
+
 :global .bp3-menu-item {
   color: black;
   padding-top: 8px;
   padding-bottom: 8px;
+  border-radius: 0;
 }
 
 /* Icons */
@@ -14,4 +19,10 @@
 :global(.bp3-button .bp3-icon-standard),
 :global(.bp3-button .bp3-icon-large) {
   color: inherit;
+}
+
+/* :global(.bp3-menu-item.bp3-intent-primary:hover),
+:global(.bp3-submenu .bp3-popover-target.bp3-popover-open > .bp3-intent-primary.bp3-menu-item), */
+:global(.bp3-menu-item.bp3-intent-primary.bp3-active) {
+  background: black;
 }

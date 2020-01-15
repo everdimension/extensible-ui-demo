@@ -1,5 +1,4 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import { Slot } from "@wordpress/components";
 import { Box, Text } from "grommet";
 import { Button, Colors } from "@blueprintjs/core";
@@ -8,12 +7,12 @@ import { Palette } from "../palette";
 import { Avatar } from "../Avatar";
 
 const headerHeight = 75;
-const footerHeight = headerHeight;
+const footerHeight = 50;
 
 function HeaderItem({ children }) {
   return (
     <Box
-      border="right"
+      // border="right"
       pad={{ left: "medium", right: "medium" }}
       justify="center"
     >
@@ -28,9 +27,9 @@ function HeaderButton(
   const { start = true, end = false, ...restProps } = props;
   return (
     <Box
-      border={
-        start && end ? "vertical" : start ? "right" : end ? "left" : undefined
-      }
+    // border={
+    //   start && end ? "vertical" : start ? "right" : end ? "left" : undefined
+    // }
     >
       <Button
         minimal
@@ -85,9 +84,15 @@ export const Layout: React.FunctionComponent<{}> = () => {
             <HeaderButton icon="home">clicky</HeaderButton>
           </Box>
 
-          <HeaderButton end={true}>
-            <Avatar></Avatar>
-          </HeaderButton>
+          <Box direction="row">
+            <Slot name="toolbar/right" />
+            <HeaderButton end={true}>
+              <Box direction="row" align="center" gap="small">
+                <Avatar></Avatar>
+                Geoff Rowley
+              </Box>
+            </HeaderButton>
+          </Box>
         </Box>
       </Box>
       <Box

@@ -1,0 +1,1 @@
+export { AudioWaves } from './AudioWaves';
