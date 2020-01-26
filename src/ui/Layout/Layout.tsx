@@ -85,6 +85,7 @@ export const Layout: React.FunctionComponent<{}> = () => {
               style={{
                 paddingLeft: 128,
                 alignSelf: "center",
+                alignItems: "center",
               }}
             >
               <UIRegion name="toolbar/left" />
