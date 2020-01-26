@@ -27,11 +27,13 @@
     "grommet": "^2.9.0",
     "hooksy": "^1.0.0",
     "is-hotkey": "^0.1.6",
+    "nanoevents": "^2.0.0",
     "normalize.css": "^8.0.1",
     "post-ui": "^1.0.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",
+    "react-spring": "^8.0.27",
     "reakit": "^1.0.0-beta.14",
     "styled-components": "^4.4.1",
     "ui": "^0.2.4"

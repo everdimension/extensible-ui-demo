@@ -1,12 +1,12 @@
 import React from "react";
-// import url from "./avatar2.jpeg";
 
-export const Avatar: React.FunctionComponent<{ size?: number }> = ({
-  size = 60,
-}) => {
+export const Avatar: React.FunctionComponent<{
+  src: string;
+  size?: number;
+}> = ({ src, size = 48 }) => {
   return (
     <img
-      src="http://placehold.it/100x100"
+      src={src}
       style={{ height: size, width: size, borderRadius: "50%" }}
       alt=""
     />

@@ -18,7 +18,7 @@ function Post() {
             icon={
               <FeatherIcon
                 name="heart"
-                svgAttrs={{ fill: "magenta", color: "magenta" }}
+                svgAttrs={{ fill: "#e91e63", color: "#e91e63" }}
               ></FeatherIcon>
             }
             minimal

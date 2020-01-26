@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useRef, useLayoutEffect } from "react";
 import { Box, Text } from "grommet";
 import { Button } from "@blueprintjs/core";
+import { users } from "../../../data/users";
 import { Avatar } from "../../../ui/Avatar";
+import { User } from '../../../ui/User';
 import { FeatherIcon } from "../../../ui/FeatherIcon";
-import { AudioRecording } from '../AudioRecording';
+import { AudioRecording } from "../AudioRecording";
 import audioSrc from "./hl.mp3";
 
 Object.assign(window, { audioSrc });
@@ -42,7 +44,49 @@ const messages: Message[] = [
   {
     id: id++,
     type: "incoming",
-    text: "Hi...",
+    text: "That is not said right",
+    date: new Date("2020-01-03T03:29:00"),
+  },
+  {
+    id: id++,
+    type: "outgoing",
+    text: "Not quite right, I’m afraid",
+    date: new Date("2020-01-03T03:30:01"),
+  },
+  {
+    id: id++,
+    type: "incoming",
+    text: "It is wrong from beginning to end",
+    date: new Date("2020-01-03T03:30:22"),
+  },
+  {
+    id: id++,
+    type: "incoming",
+    text:
+      "One side will make you grow taller, and the other side will make you grow shorter",
+    date: new Date("2020-01-03T03:40:03"),
+  },
+  {
+    id: id++,
+    type: "outgoing",
+    text: "One side of what? The other side of what?",
+    date: new Date("2020-01-03T03:40:13"),
+  },
+  {
+    id: id++,
+    type: "incoming",
+    text: "Of the mushroom",
+    date: new Date("2020-01-03T03:51:00"),
+  },
+  {
+    id: id++,
+    type: "outgoing",
+    text: "And now which is which?",
+    date: new Date("2020-01-03T03:51:30"),
+  },
+  {
+    id: id++,
+    type: "incoming",
     date: new Date("2020-01-03T03:25:00"),
     voice: {
       duration: 10300,
@@ -64,14 +108,27 @@ const messages: Message[] = [
   {
     id: id++,
     type: "outgoing",
-    text: "Yeah, but I won't",
+    text: "So how was your day?",
     date: new Date("2020-01-03T04:24:24"),
   },
   {
     id: id++,
     type: "incoming",
-    text: "It's okay to eat fish, 'cause it don't have any feeling",
-    date: new Date("2020-01-03T04:42:00"),
+    text:
+      "One side will make you grow taller, and the other side will make you grow shorter",
+    date: new Date("2020-01-03T03:40:03"),
+  },
+  {
+    id: id++,
+    type: "outgoing",
+    text: "One side of what? The other side of what?",
+    date: new Date("2020-01-03T03:40:13"),
+  },
+  {
+    id: id++,
+    type: "incoming",
+    text: "Of the mushroom",
+    date: new Date("2020-01-03T03:51:00"),
   },
 ];
 
@@ -83,9 +140,9 @@ function MessengerHeader() {
       gap="xsmall"
       align="center"
       pad="small"
+      flex={{ shrink: 0 }}
     >
-      <Avatar size={40} />
-      <Text>Sub Zero</Text>
+      <User size={40} user={users['1']} />
     </Box>
   );
 }
@@ -133,6 +190,13 @@ function MessageRow({
 }
 
 export const MessengerContent: React.FunctionComponent<{}> = () => {
+  const ref = useRef<HTMLDivElement>();
+  useLayoutEffect(() => {
+    if (!ref.current) {
+      return;
+    }
+    ref.current.scrollTop = ref.current.scrollHeight;
+  }, []);
   return (
     <Box
       border="all"
@@ -141,7 +205,7 @@ export const MessengerContent: React.FunctionComponent<{}> = () => {
       style={{ maxHeight: 500 }}
     >
       <MessengerHeader />
-      <div style={{ flexGrow: 1, overflowY: "auto" }}>
+      <div ref={ref} style={{ flexGrow: 1, overflowY: "auto" }}>
         {messages.map(message => (
           <MessageRow key={message.id} type={message.type}>
             {message.voice ? (

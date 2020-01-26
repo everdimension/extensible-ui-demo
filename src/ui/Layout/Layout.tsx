@@ -1,10 +1,10 @@
 import React from "react";
-import { Slot } from "@wordpress/components";
+import { UIRegion } from "../../lib/regions";
 import { Box, Text } from "grommet";
 import { Button, Colors } from "@blueprintjs/core";
 import { useTheme } from "../useTheme";
 import { Palette } from "../palette";
-import { Avatar } from "../Avatar";
+import { Self } from "../Self";
 
 const headerHeight = 75;
 const footerHeight = 50;
@@ -81,17 +81,19 @@ export const Layout: React.FunctionComponent<{}> = () => {
                 </Text>
               </span>
             </HeaderItem>
-            <HeaderButton icon="home">clicky</HeaderButton>
+            <div
+              style={{
+                paddingLeft: 128,
+                alignSelf: "center",
+              }}
+            >
+              <UIRegion name="toolbar/left" />
+            </div>
           </Box>
 
           <Box direction="row">
-            <Slot name="toolbar/right" />
-            <HeaderButton end={true}>
-              <Box direction="row" align="center" gap="small">
-                <Avatar></Avatar>
-                Geoff Rowley
-              </Box>
-            </HeaderButton>
+            <UIRegion name="toolbar/right" />
+            <Self />
           </Box>
         </Box>
       </Box>
@@ -120,11 +122,11 @@ export const Layout: React.FunctionComponent<{}> = () => {
           border="all"
         >
           <ul style={{ padding: 0, margin: 0, listStyle: "none" }}>
-            <Slot name="navigation" />
+            <UIRegion name="navigation" />
           </ul>
         </Box>
         <Box fill>
-          <Slot name="main"></Slot>
+          <UIRegion name="main" />
         </Box>
       </Box>
       <Box
@@ -141,8 +143,17 @@ export const Layout: React.FunctionComponent<{}> = () => {
         justify="center"
         direction="row"
       >
-        <Box style={{ maxWidth: 1000 }} fill={true}>
-          footer
+        <Box
+          style={{ maxWidth: 1000 }}
+          fill={true}
+          direction="row"
+          justify="between"
+          align="center"
+        >
+          App 2019
+          <Box style={{ marginLeft: "auto" }}>
+            <UIRegion name="system-messages" />
+          </Box>
         </Box>
       </Box>
     </Box>

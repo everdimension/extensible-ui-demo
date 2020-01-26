@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Route, useHistory } from "react-router-dom";
-import { Fill } from "@wordpress/components";
+import { UIContent } from "../../lib/regions";
 import { FeedContent } from "./FeedContent";
 import { Keybinding } from "../../ui/Keybinding";
 import { NavigationItem } from "../../ui/Layout/NavigationItem";
@@ -21,29 +21,28 @@ export const Feed: React.FunctionComponent<{}> = () => {
         }}
         disabled={!enabled}
       />
-      <Fill name="settings/shortuts">
+      <UIContent name="settings/shortuts">
         <ShortcutSwitch
           label="Feed"
           shortcut={combo}
           defaultChecked={enabled}
           onChange={() => setEnabled(x => !x)}
         />
-      </Fill>
-      <Fill name="navigation">
+      </UIContent>
+      <UIContent name="navigation">
         <NavigationItem
           featherIcon="image"
-          iconColor="magenta"
           text="Feed"
           label={enabled ? combo.replace('ctrl+', '^') : undefined}
           href={pathname}
           onNavigate={(pathname: string) => history.push(pathname)}
         ></NavigationItem>
-      </Fill>
-      <Fill name="main">
+      </UIContent>
+      <UIContent name="main">
         <Route path={pathname} exact={true}>
           <FeedContent />
         </Route>
-      </Fill>
+      </UIContent>
     </>
   );
 };

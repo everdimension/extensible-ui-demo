@@ -5,6 +5,7 @@ import { Feed } from "../features/Feed";
 import { Profile } from "../features/Profile";
 import { Settings } from "../features/Settings";
 import { Messenger } from "../features/Messenger";
+import { Prototype } from "../features/Prototype";
 
 export function App() {
   return (
@@ -15,6 +16,7 @@ export function App() {
       <Profile />
       <Messenger />
       <Settings />
+      <Prototype />
     </>
   );
 }

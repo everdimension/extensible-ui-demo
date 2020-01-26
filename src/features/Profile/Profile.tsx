@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Route, useHistory } from "react-router-dom";
-import { Fill } from "@wordpress/components";
+import { UIContent } from "../../lib/regions";
 import { Keybinding } from "../../ui/Keybinding";
+import { SelfMenuItem } from "../../ui/Self";
 import { NavigationItem } from "../../ui/Layout/NavigationItem";
 import { ShortcutSwitch } from "../Settings/ShortcutSwitch";
+import { Page } from "../../ui/Layout/Page";
 
 const pathname = "/profile";
 const combo = "ctrl+P";
@@ -20,15 +22,15 @@ export const Profile: React.FunctionComponent<{}> = () => {
         }}
         disabled={!enabled}
       />
-      <Fill name="settings/shortuts">
+      <UIContent name="settings/shortuts">
         <ShortcutSwitch
           label="Profile"
           shortcut={combo}
           defaultChecked={enabled}
           onChange={() => setEnabled(x => !x)}
         />
-      </Fill>
-      <Fill name="navigation">
+      </UIContent>
+      <UIContent name="navigation">
         <NavigationItem
           featherIcon="user"
           text="Profile"
@@ -36,12 +38,20 @@ export const Profile: React.FunctionComponent<{}> = () => {
           href={pathname}
           onNavigate={(pathname: string) => history.push(pathname)}
         ></NavigationItem>
-      </Fill>
-      <Fill name="main">
+      </UIContent>
+      <UIContent name="main">
         <Route path={pathname}>
-          profile content
+          <Page title="Profile" documentTitle="Profile">
+            profile content
+          </Page>
         </Route>
-      </Fill>
+      </UIContent>
+      <UIContent name="self/menu-options">
+        <SelfMenuItem
+          text="Profile"
+          onClick={() => history.push(pathname)}
+        ></SelfMenuItem>
+      </UIContent>
     </>
   );
 };

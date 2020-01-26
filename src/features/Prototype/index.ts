@@ -1,0 +1,1 @@
+export { Prototype } from './Prototype';

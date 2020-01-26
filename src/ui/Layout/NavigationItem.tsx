@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation }from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 import { MenuItem } from "@blueprintjs/core";
 import { FeatherIcon } from "../../ui/FeatherIcon";
 
@@ -15,12 +15,13 @@ export function NavigationItem({
   featherIcon?: string;
   iconColor?: string;
 } & MenuItem["props"]) {
-  const location = useLocation()
+  const location = useLocation();
+  const active = location.pathname === href;
   return (
     <MenuItem
       {...props}
       href={href}
-      active={location.pathname === href}
+      active={active}
       icon={
         icon ? (
           icon
@@ -28,7 +29,12 @@ export function NavigationItem({
           <FeatherIcon
             style={{ marginTop: 2 }}
             name={featherIcon}
-            svgAttrs={{ width: 16, height: 16, color: iconColor }}
+            svgAttrs={{
+              width: 16,
+              height: 16,
+              color: active ? "#e91e63" : "inherit",
+              'stroke-width': active ? 3 : 2,
+            }}
           ></FeatherIcon>
         ) : (
           undefined
