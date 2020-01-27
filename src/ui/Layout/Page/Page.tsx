@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSpring, animated, config } from "react-spring";
 import { Heading } from "grommet";
-import { UIContent } from "../../../lib/regions";
+import { Content } from "react-area";
 import { useScrollPosition } from "../../useScrollPosition";
 import { useDocumentTitle } from '../../documentTitle';
 
@@ -24,9 +24,9 @@ export const Page: React.FunctionComponent<{
   });
   return (
     <>
-      <UIContent name="toolbar/left">
+      <Content name="toolbar/left">
         <animated.h3 style={props}>{title}</animated.h3>
-      </UIContent>
+      </Content>
       {title ? (
         <Heading style={{ margin: 0, marginBottom: 10 }}>{title}</Heading>
       ) : null}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Route, useHistory } from "react-router-dom";
-import { UIContent } from "../../lib/regions";
+import { Content } from "react-area";
 import { FeedContent } from "./FeedContent";
 import { Keybinding } from "../../ui/Keybinding";
 import { NavigationItem } from "../../ui/Layout/NavigationItem";
@@ -21,15 +21,15 @@ export const Feed: React.FunctionComponent<{}> = () => {
         }}
         disabled={!enabled}
       />
-      <UIContent name="settings/shortuts">
+      <Content name="settings/shortuts">
         <ShortcutSwitch
           label="Feed"
           shortcut={combo}
           defaultChecked={enabled}
           onChange={() => setEnabled(x => !x)}
         />
-      </UIContent>
-      <UIContent name="navigation">
+      </Content>
+      <Content name="navigation">
         <NavigationItem
           featherIcon="image"
           text="Feed"
@@ -37,12 +37,12 @@ export const Feed: React.FunctionComponent<{}> = () => {
           href={pathname}
           onNavigate={(pathname: string) => history.push(pathname)}
         ></NavigationItem>
-      </UIContent>
-      <UIContent name="main">
+      </Content>
+      <Content name="main">
         <Route path={pathname} exact={true}>
           <FeedContent />
         </Route>
-      </UIContent>
+      </Content>
     </>
   );
 };

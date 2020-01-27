@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { Content } from "react-area";
 import { Tag } from "@blueprintjs/core";
-import { UIContent } from "../../lib/regions";
 import { Text, Box } from "grommet";
 import { Route, useHistory, useLocation } from "react-router-dom";
 import { Keybinding } from "../../ui/Keybinding";
@@ -12,7 +12,7 @@ import { useAudioPlayback } from "./audioState";
 import { SelfMenuItem } from "../../ui/Self";
 import { FeatherIcon } from "../../ui/FeatherIcon";
 import { Page } from "../../ui/Layout/Page";
-import { useDocumentPrefix } from '../../ui/documentTitle';
+import { useDocumentPrefix } from "../../ui/documentTitle";
 
 const pathname = "/messenger";
 const combo = "ctrl+M";
@@ -42,7 +42,7 @@ export const Messenger: React.FunctionComponent<{}> = () => {
         }}
         disabled={!enabled}
       />
-      <UIContent name="self/menu-options">
+      <Content name="self/menu-options">
         <SelfMenuItem
           hasNotification={hasUnread}
           text="Messages"
@@ -55,21 +55,21 @@ export const Messenger: React.FunctionComponent<{}> = () => {
           }
           onClick={() => history.push(pathname)}
         ></SelfMenuItem>
-      </UIContent>
-      <UIContent name="settings/shortuts">
+      </Content>
+      <Content name="settings/shortuts">
         <ShortcutSwitch
           label="Messenger"
           shortcut={combo}
           defaultChecked={enabled}
           onChange={() => setEnabled(x => !x)}
         />
-      </UIContent>
+      </Content>
       {src ? (
-        <UIContent name="toolbar/right">
+        <Content name="toolbar/right">
           <AudioRecording showStopControl src={src} />
-        </UIContent>
+        </Content>
       ) : null}
-      <UIContent name="navigation">
+      <Content name="navigation">
         <NavigationItem
           featherIcon="message-circle"
           text="Messenger"
@@ -77,23 +77,23 @@ export const Messenger: React.FunctionComponent<{}> = () => {
           href={pathname}
           onNavigate={(pathname: string) => history.push(pathname)}
         ></NavigationItem>
-      </UIContent>
-      <UIContent name="main">
+      </Content>
+      <Content name="main">
         <Route path={pathname}>
           <Page documentTitle="Messenger">
             <MessengerContent />
           </Page>
         </Route>
-      </UIContent>
+      </Content>
       <Route path={pathname}>
-        <UIContent name="system-messages">
+        <Content name="system-messages">
           <Text>
             <Box as="i" direction="row" align="center" gap="xsmall">
               <FeatherIcon name="alert-triangle" />{" "}
               <span>Messages sent to Russian users may be delayed</span>
             </Box>
           </Text>
-        </UIContent>
+        </Content>
       </Route>
     </>
   );

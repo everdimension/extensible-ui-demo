@@ -22,7 +22,6 @@
   "dependencies": {
     "@blueprintjs/core": "^3.22.3",
     "@blueprintjs/icons": "^3.13.0",
-    "@wordpress/components": "^8.5.0",
     "feather-icons": "^4.25.0",
     "grommet": "^2.9.0",
     "hooksy": "^1.0.0",
@@ -31,6 +30,7 @@
     "normalize.css": "^8.0.1",
     "post-ui": "^1.0.1",
     "react": "^16.12.0",
+    "react-area": "^0.1.1-alpha.1",
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",
     "react-spring": "^8.0.27",

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Route, useHistory } from "react-router-dom";
-import { UIContent } from "../../lib/regions";
+import { Content } from "react-area";
 import { Keybinding } from "../../ui/Keybinding";
 import { SelfMenuItem } from "../../ui/Self";
 import { NavigationItem } from "../../ui/Layout/NavigationItem";
@@ -22,15 +22,15 @@ export const Profile: React.FunctionComponent<{}> = () => {
         }}
         disabled={!enabled}
       />
-      <UIContent name="settings/shortuts">
+      <Content name="settings/shortuts">
         <ShortcutSwitch
           label="Profile"
           shortcut={combo}
           defaultChecked={enabled}
           onChange={() => setEnabled(x => !x)}
         />
-      </UIContent>
-      <UIContent name="navigation">
+      </Content>
+      <Content name="navigation">
         <NavigationItem
           featherIcon="user"
           text="Profile"
@@ -38,20 +38,20 @@ export const Profile: React.FunctionComponent<{}> = () => {
           href={pathname}
           onNavigate={(pathname: string) => history.push(pathname)}
         ></NavigationItem>
-      </UIContent>
-      <UIContent name="main">
+      </Content>
+      <Content name="main">
         <Route path={pathname}>
           <Page title="Profile" documentTitle="Profile">
             profile content
           </Page>
         </Route>
-      </UIContent>
-      <UIContent name="self/menu-options">
+      </Content>
+      <Content name="self/menu-options">
         <SelfMenuItem
           text="Profile"
           onClick={() => history.push(pathname)}
         ></SelfMenuItem>
-      </UIContent>
+      </Content>
     </>
   );
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import { UIRegion } from "../../lib/regions";
+import { RenderArea } from 'react-area';
 import { Box, Text } from "grommet";
 import { Button, Colors } from "@blueprintjs/core";
 import { useTheme } from "../useTheme";
@@ -88,12 +88,12 @@ export const Layout: React.FunctionComponent<{}> = () => {
                 alignItems: "center",
               }}
             >
-              <UIRegion name="toolbar/left" />
+              <RenderArea name="toolbar/left" />
             </div>
           </Box>
 
           <Box direction="row">
-            <UIRegion name="toolbar/right" />
+            <RenderArea name="toolbar/right" />
             <Self />
           </Box>
         </Box>
@@ -123,11 +123,11 @@ export const Layout: React.FunctionComponent<{}> = () => {
           border="all"
         >
           <ul style={{ padding: 0, margin: 0, listStyle: "none" }}>
-            <UIRegion name="navigation" />
+            <RenderArea name="navigation" />
           </ul>
         </Box>
         <Box fill>
-          <UIRegion name="main" />
+          <RenderArea name="main" />
         </Box>
       </Box>
       <Box
@@ -153,7 +153,7 @@ export const Layout: React.FunctionComponent<{}> = () => {
         >
           App 2019
           <Box style={{ marginLeft: "auto" }}>
-            <UIRegion name="system-messages" />
+            <RenderArea name="system-messages" />
           </Box>
         </Box>
       </Box>

@@ -1,5 +1,5 @@
 import React from "react";
-import { UIRegion } from "../../lib/regions";
+import { RenderArea } from "react-area";
 import { MenuItem } from "@blueprintjs/core";
 import { Box } from "grommet";
 import { usePopoverState, Popover, PopoverDisclosure } from "reakit/Popover";
@@ -16,7 +16,7 @@ export function SelfMenuItem({
 export const Self: React.FunctionComponent<{}> = () => {
   const popover = usePopoverState();
   return (
-    <UIRegion name="self/menu-options">
+    <RenderArea name="self/menu-options">
       {contentElements => {
         const someNotifications = React.Children.toArray(contentElements).some(
           element => element.props.hasNotification,
@@ -51,6 +51,6 @@ export const Self: React.FunctionComponent<{}> = () => {
           </>
         );
       }}
-    </UIRegion>
+    </RenderArea>
   );
 };
