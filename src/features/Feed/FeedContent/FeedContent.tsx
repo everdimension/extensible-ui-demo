@@ -3,14 +3,16 @@ import { Box } from "grommet";
 import { Button } from "@blueprintjs/core";
 import { FeatherIcon } from "../../../ui/FeatherIcon";
 import { Page } from "../../../ui/Layout/Page";
+import { posts } from "./posts";
 
-function Post() {
+function Post({ img }) {
   return (
-    <Box border="all" flex={false} style={{ maxWidth: 400 }}>
+    <Box border="all" flex={false} style={{ maxWidth: 600 }}>
       <img
-        src={`https://picsum.photos/300?d=${Date.now()}`}
+        src={`https://picsum.photos/600/400?d=${Date.now()}`}
+        // src={img}
         alt="random image from unsplash"
-        style={{ width: '100%' }}
+        style={{ width: "100%" }}
       />
       <Box direction="row" gap="small" justify="between">
         <Box direction="row">
@@ -38,9 +40,9 @@ export const FeedContent: React.FunctionComponent<{}> = () => {
   return (
     <Page title="Feed">
       <Box gap="medium" flex={{ grow: 0 }}>
-        <Post />
-        <Post />
-        <Post />
+        {posts.map(post => (
+          <Post key={post.id} img={post.img} />
+        ))}
       </Box>
     </Page>
   );

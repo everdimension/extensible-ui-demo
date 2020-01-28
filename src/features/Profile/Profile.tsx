@@ -5,7 +5,7 @@ import { Keybinding } from "../../ui/Keybinding";
 import { SelfMenuItem } from "../../ui/Self";
 import { NavigationItem } from "../../ui/Layout/NavigationItem";
 import { ShortcutSwitch } from "../Settings/ShortcutSwitch";
-import { Page } from "../../ui/Layout/Page";
+import { ProfileContent } from "./ProfileContent";
 
 const pathname = "/profile";
 const combo = "ctrl+P";
@@ -41,9 +41,7 @@ export const Profile: React.FunctionComponent<{}> = () => {
       </Content>
       <Content name="main">
         <Route path={pathname}>
-          <Page title="Profile" documentTitle="Profile">
-            profile content
-          </Page>
+          <ProfileContent />
         </Route>
       </Content>
       <Content name="self/menu-options">

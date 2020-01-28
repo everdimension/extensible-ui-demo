@@ -26,3 +26,10 @@ body {
 :global(.bp3-menu-item.bp3-intent-primary.bp3-active) {
   background: black;
 }
+
+:global(.bp3-control.bp3-switch:hover input:checked ~ .bp3-control-indicator) {
+  background: #333;
+}
+:global(.bp3-control.bp3-switch input:checked ~ .bp3-control-indicator) {
+  background: black;
+}

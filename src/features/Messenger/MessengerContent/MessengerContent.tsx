@@ -2,7 +2,6 @@ import React, { useRef, useLayoutEffect } from "react";
 import { Box, Text } from "grommet";
 import { Button } from "@blueprintjs/core";
 import { users } from "../../../data/users";
-import { Avatar } from "../../../ui/Avatar";
 import { User } from '../../../ui/User';
 import { FeatherIcon } from "../../../ui/FeatherIcon";
 import { AudioRecording } from "../AudioRecording";
