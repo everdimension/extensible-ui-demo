@@ -21,7 +21,7 @@ export const Settings: React.FunctionComponent<{}> = () => {
         }}
         disabled={!enabled}
       />
-      <Content name="settings/shortuts">
+      <Content name="settings/shortcuts">
         <ShortcutSwitch
           label="Settings"
           shortcut={combo}

@@ -56,7 +56,7 @@ export const Messenger: React.FunctionComponent<{}> = () => {
           onClick={() => history.push(pathname)}
         ></SelfMenuItem>
       </Content>
-      <Content name="settings/shortuts">
+      <Content name="settings/shortcuts">
         <ShortcutSwitch
           label="Messenger"
           shortcut={combo}

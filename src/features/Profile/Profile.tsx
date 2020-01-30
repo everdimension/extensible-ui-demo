@@ -22,7 +22,7 @@ export const Profile: React.FunctionComponent<{}> = () => {
         }}
         disabled={!enabled}
       />
-      <Content name="settings/shortuts">
+      <Content name="settings/shortcuts">
         <ShortcutSwitch
           label="Profile"
           shortcut={combo}

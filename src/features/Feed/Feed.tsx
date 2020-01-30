@@ -21,7 +21,7 @@ export const Feed: React.FunctionComponent<{}> = () => {
         }}
         disabled={!enabled}
       />
-      <Content name="settings/shortuts">
+      <Content name="settings/shortcuts">
         <ShortcutSwitch
           label="Feed"
           shortcut={combo}
