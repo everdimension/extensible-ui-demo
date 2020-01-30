@@ -7,5 +7,11 @@ ReactDOM.render(
   <Root>
     <App />
   </Root>,
-  document.getElementById("root")
+  document.getElementById("root"),
 );
+
+// @ts-ignore
+if (module.hot) {
+  // @ts-ignore
+  module.hot.accept();
+}
