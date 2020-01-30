@@ -2,7 +2,7 @@
 // import { NavigationItem } from "../../ui/NavigationItem";
 // import { ShortcutSwitch } from "../Settings/ShortcutSwitch";
 
-// <Content name="settings/shortuts">
+// <Content name="settings/shortcuts">
 //   <ShortcutSwitch
 //     label="Messenger"
 //     shortcut={combo}
