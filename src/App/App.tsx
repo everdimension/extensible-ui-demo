@@ -4,7 +4,6 @@ import { Layout } from "../ui/Layout";
 import { Feed } from "../features/Feed";
 import { Profile } from "../features/Profile";
 import { Settings } from "../features/Settings";
-import { Messenger } from "../features/Messenger";
 
 export function App() {
   return (
@@ -13,7 +12,6 @@ export function App() {
 
       <Feed />
       <Profile />
-      <Messenger />
       <Settings />
     </>
   );
