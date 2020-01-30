@@ -1,9 +1,14 @@
 import React from "react";
 import { users } from "../../../data/users";
+import { useEntity } from "../../../data/useLoadingState";
 import { Page } from "../../../ui/Layout/Page";
 import { Avatar } from "../../../ui/Avatar";
 
 export const ProfileContent: React.FunctionComponent<{}> = () => {
+  const { loading } = useEntity("/api/profile");
+  if (loading) {
+    return null;
+  }
   return (
     <Page title="Profile" documentTitle="Profile">
       <div

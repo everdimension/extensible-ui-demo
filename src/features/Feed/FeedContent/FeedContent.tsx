@@ -4,14 +4,15 @@ import { Button } from "@blueprintjs/core";
 import { FeatherIcon } from "../../../ui/FeatherIcon";
 import { Page } from "../../../ui/Layout/Page";
 import { posts } from "./posts";
+import { useEntity } from "../../../data/useLoadingState";
 
-function Post({ img }) {
+function Post({ post }) {
   return (
     <Box border="all" flex={false} style={{ maxWidth: 600 }}>
       <img
-        src={`https://picsum.photos/600/400?d=${Date.now()}`}
-        // src={img}
-        alt="random image from unsplash"
+        // src={`https://picsum.photos/600/400?d=${Date.now()}`}
+        src={post.img}
+        alt={post.alt || "random image from unsplash"}
         style={{ width: "100%" }}
       />
       <Box direction="row" gap="small" justify="between">
@@ -20,7 +21,10 @@ function Post({ img }) {
             icon={
               <FeatherIcon
                 name="heart"
-                svgAttrs={{ fill: "#e91e63", color: "#e91e63" }}
+                svgAttrs={{
+                  fill: post.liked ? "#e91e63" : 'none',
+                  color: post.liked ? "#e91e63" : undefined,
+                }}
               ></FeatherIcon>
             }
             minimal
@@ -37,11 +41,15 @@ function Post({ img }) {
   );
 }
 export const FeedContent: React.FunctionComponent<{}> = () => {
+  const { loading } = useEntity("/api/posts");
+  if (loading) {
+    return null;
+  }
   return (
     <Page title="Feed">
       <Box gap="medium" flex={{ grow: 0 }}>
         {posts.map(post => (
-          <Post key={post.id} img={post.img} />
+          <Post key={post.id} post={post} />
         ))}
       </Box>
     </Page>

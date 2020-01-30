@@ -28,7 +28,7 @@ export const Page: React.FunctionComponent<{
         <animated.h3 style={props}>{title}</animated.h3>
       </Content>
       {title ? (
-        <Heading style={{ margin: 0, marginBottom: 10 }}>{title}</Heading>
+        <Heading style={{ margin: 0, marginBottom: 20 }}>{title}</Heading>
       ) : null}
 
       {children}

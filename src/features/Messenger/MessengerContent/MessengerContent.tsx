@@ -5,6 +5,7 @@ import { users } from "../../../data/users";
 import { User } from '../../../ui/User';
 import { FeatherIcon } from "../../../ui/FeatherIcon";
 import { AudioRecording } from "../AudioRecording";
+import { useEntity } from '../../../data/useLoadingState';
 import audioSrc from "./hl.mp3";
 
 Object.assign(window, { audioSrc });
@@ -196,6 +197,10 @@ export const MessengerContent: React.FunctionComponent<{}> = () => {
     }
     ref.current.scrollTop = ref.current.scrollHeight;
   }, []);
+  const { loading } = useEntity('api/messages')
+  if (loading) {
+    return null;
+  }
   return (
     <Box
       border="all"

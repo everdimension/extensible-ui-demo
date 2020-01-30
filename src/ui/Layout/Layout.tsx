@@ -1,10 +1,10 @@
 import React from "react";
-import { RenderArea } from 'react-area';
-import { Box, Text } from "grommet";
+import { RenderArea } from "react-area";
+import { Box } from "grommet";
 import { Button, Colors } from "@blueprintjs/core";
 import { useTheme } from "../useTheme";
-import { Palette } from "../palette";
 import { Self } from "../Self";
+import { Logo } from "../Logo";
 
 const headerHeight = 75;
 const footerHeight = 50;
@@ -67,19 +67,7 @@ export const Layout: React.FunctionComponent<{}> = () => {
         >
           <Box direction="row">
             <HeaderItem>
-              <span
-                style={{
-                  padding: "6px 10px",
-                  backgroundColor: Palette[theme].BG_CONTRAST,
-                }}
-              >
-                <Text color={Palette[theme].TEXT_CONTRAST}>
-                  {/* Application */}
-                  {/* ApPl1Ca710n */}
-                  {/* Appl1ca710n */}
-                  Appl1ca710n
-                </Text>
-              </span>
+              <Logo />
             </HeaderItem>
             <div
               style={{
