@@ -71,7 +71,8 @@ export const Layout: React.FunctionComponent<{}> = () => {
             </HeaderItem>
             <div
               style={{
-                paddingLeft: 128,
+                // paddingLeft: 128,
+                paddingLeft: 112,
                 alignSelf: "center",
                 alignItems: "center",
               }}
