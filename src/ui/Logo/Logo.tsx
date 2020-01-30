@@ -10,7 +10,7 @@ function getNewRandomNumberInRange(prevNumber: number, size: number) {
     }
     range.push(n++);
   }
-  const index = Math.floor(Math.random() * size);
+  const index = Math.floor(Math.random() * (size - 1));
   return range[index];
 }
 
@@ -35,6 +35,7 @@ function useInterval(callback: () => void, delay: number | null) {
 }
 
 const strings = [
+  "Appl1ca710n",
   "Application",
   "ApPl1Ca710n",
   "4PPLiC47I0N",
