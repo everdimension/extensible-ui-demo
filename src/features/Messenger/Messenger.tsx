@@ -4,8 +4,6 @@ import { Tag } from "@blueprintjs/core";
 import { Text, Box } from "grommet";
 import { Route, useHistory, useLocation } from "react-router-dom";
 import { Keybinding } from "../../ui/Keybinding";
-import { NavigationItem } from "../../ui/Layout/NavigationItem";
-import { ShortcutSwitch } from "../Settings/ShortcutSwitch";
 import { MessengerContent } from "./MessengerContent";
 import { AudioRecording } from "./AudioRecording";
 import { useAudioPlayback } from "./audioState";
@@ -20,7 +18,6 @@ const combo = "ctrl+M";
 export const Messenger: React.FunctionComponent<{}> = () => {
   const history = useHistory();
   const location = useLocation();
-  const [enabled, setEnabled] = useState(true);
 
   const [unreadCount, setUnreadCount] = useState(13);
   useEffect(() => {
@@ -40,7 +37,7 @@ export const Messenger: React.FunctionComponent<{}> = () => {
         onKeyDown={() => {
           history.push(pathname);
         }}
-        disabled={!enabled}
+        disabled={false}
       />
       <Content name="self/menu-options">
         <SelfMenuItem
@@ -56,28 +53,11 @@ export const Messenger: React.FunctionComponent<{}> = () => {
           onClick={() => history.push(pathname)}
         ></SelfMenuItem>
       </Content>
-      <Content name="settings/shortcuts">
-        <ShortcutSwitch
-          label="Messenger"
-          shortcut={combo}
-          defaultChecked={enabled}
-          onChange={() => setEnabled(x => !x)}
-        />
-      </Content>
       {src ? (
         <Content name="toolbar/right">
           <AudioRecording showStopControl src={src} />
         </Content>
       ) : null}
-      <Content name="navigation">
-        <NavigationItem
-          featherIcon="message-circle"
-          text="Messenger"
-          label={enabled ? combo.replace("ctrl+", "^") : undefined}
-          href={pathname}
-          onNavigate={(pathname: string) => history.push(pathname)}
-        ></NavigationItem>
-      </Content>
       <Content name="main">
         <Route path={pathname}>
           <Page documentTitle="Messenger">
